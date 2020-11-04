@@ -8,5 +8,7 @@
 </p>
 
 ## Content of the repo
-This repo contains scripts for Azure CLI:
-00 - Azure CLI Backup scripts
+This repo contains scripts for Azure CLI
+
+### 00 - Azure CLI Backup scripts
+A bunch of scripts to recover backups from VMs, Postgres or FileShares
