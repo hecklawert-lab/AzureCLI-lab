@@ -6,5 +6,6 @@
       width="800"
   />
 </p>
-
-This repo contains scripts for Azure CLI
+## Content of the repo
+This repo contains scripts for Azure CLI:
+00 - Azure CLI Backup scripts
