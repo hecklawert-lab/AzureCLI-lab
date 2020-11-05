@@ -20,12 +20,12 @@ fi
 
 #Helpers
 wait_restore () {
-  num_pending=$(az backup job list --resource-group $resourceGroupName --vault-name $recoveryServicesVaultName --output tsv --query [].properties.status | grep InProgress | wc -l)
+  num_pending=$(az backup job list --resource-group $resourceGroupName --vault-name $recoveryServicesVaultName --output tsv --query "[?properties.operation=='Restore'].{status:properties.status}" | grep 'InProgress' | wc -l)
   while [ $num_pending -gt 0 ]
   do
     echo "Waiting to have all restores finished"
     sleep 30
-    num_pending=$(az backup job list --resource-group $resourceGroupName --vault-name $recoveryServicesVaultName --output tsv --query [].properties.status | grep InProgress | wc -l)
+    num_pending=$(az backup job list --resource-group $resourceGroupName --vault-name $recoveryServicesVaultName --output tsv --query "[?properties.operation=='Restore'].{status:properties.status}" | grep 'InProgress' | wc -l)
   done
 }
 
